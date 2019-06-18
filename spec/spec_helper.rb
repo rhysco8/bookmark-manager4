@@ -14,11 +14,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+
 ENV['ENVIRONMENT'] = 'test'
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
+require_relative './setup_test_database'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -26,6 +27,13 @@ require 'rspec'
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
+
+    # This will run the bespoke script to empty our test database before each
+  # set of tests are run
+  config.before(:each) do
+    setup_test_database
+  end
+  
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -39,6 +47,8 @@ RSpec.configure do |config|
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
