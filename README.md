@@ -1,5 +1,7 @@
 # :bookmark: Bookmark Manager :bookmark:
 
+[![Build Status](https://travis-ci.com/petraartep/bookmark-manager.svg?branch=master)](https://travis-ci.com/petraartep/bookmark-manager)
+
 ## User Stories
 
 ```
