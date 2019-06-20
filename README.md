@@ -16,6 +16,10 @@ I would like to add the site's address and title to bookmark manager
 As a user
 So that I can update my collection of bookmarks
 I want to add a bookmark
+
+As a user
+So I can remove my bookmark from Bookmark Manager
+I want to delete a bookmark
 ```
 
 ## Domain Model
