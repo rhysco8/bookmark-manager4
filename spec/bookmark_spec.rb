@@ -38,10 +38,8 @@ describe Bookmark do
     it 'deletes a bookmark' do
       bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
       bookmark_id = bookmark.id
-      p persisted_data(id: bookmark_id)
 
       Bookmark.delete(id: bookmark_id)
-      p persisted_data(id: bookmark_id)
       expect(persisted_data(id: bookmark_id)).to be_nil
     end
   end

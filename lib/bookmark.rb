@@ -41,9 +41,6 @@ class Bookmark
       connection = PG.connect(dbname: 'bookmark_manager')
     end
     result = connection.exec("DELETE FROM bookmarks WHERE id = #{id};")
-
-    p result.first
-  
   end
 
 end
