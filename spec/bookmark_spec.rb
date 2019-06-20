@@ -53,4 +53,25 @@ describe Bookmark do
     end
   end
 
+  describe '.update' do
+    it 'updates the title of a bookmark' do
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+
+      Bookmark.update(id: bookmark.id, title: 'Makers Academy', url: 'http://www.makersacademy.com')
+
+      expect(Bookmark.find(id: bookmark.id).title).not_to eq(bookmark.title)
+      expect(Bookmark.find(id: bookmark.id).title).to eq('Makers Academy')
+    end
+
+    it 'updates the url of a bookmark' do
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+
+      Bookmark.update(id: bookmark.id, title: 'Makers Academy', url: 'http://www.makersacademy.com')
+
+      expect(Bookmark.find(id: bookmark.id).url).not_to eq(bookmark.url)
+      expect(Bookmark.find(id: bookmark.id).url).to eq('http://www.makersacademy.com')
+    end
+
+  end
+
 end
