@@ -26,11 +26,23 @@ describe Bookmark do
     it 'creates a new bookmark' do
       bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
       persisted_data = persisted_data(id: bookmark.id)
-      
+
       expect(bookmark).to be_a Bookmark
       expect(bookmark.id).to eq persisted_data['id']
       expect(bookmark.title).to eq 'Test Bookmark'
       expect(bookmark.url).to eq 'http://www.testbookmark.com'
+    end
+  end
+
+  describe '.delete' do
+    it 'deletes a bookmark' do
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      bookmark_id = bookmark.id
+      p persisted_data(id: bookmark_id)
+
+      Bookmark.delete(id: bookmark_id)
+      p persisted_data(id: bookmark_id)
+      expect(persisted_data(id: bookmark_id)).to be_nil
     end
   end
 
