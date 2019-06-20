@@ -20,6 +20,10 @@ I want to add a bookmark
 As a user
 So I can remove my bookmark from Bookmark Manager
 I want to delete a bookmark
+
+As a user
+So I can change the title or url of a bookmark
+I want to update a bookmark
 ```
 
 ## Domain Model
