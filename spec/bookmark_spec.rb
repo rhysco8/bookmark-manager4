@@ -32,6 +32,12 @@ describe Bookmark do
       expect(bookmark.title).to eq 'Test Bookmark'
       expect(bookmark.url).to eq 'http://www.testbookmark.com'
     end
+
+    it "returns error message if URL is invalid'" do
+      bookmark = Bookmark.create(url: 'www.testbookmark.com', title: 'Test Bookmark')
+
+      expect(bookmark).to eq(false)
+    end
   end
 
   describe '.delete' do
